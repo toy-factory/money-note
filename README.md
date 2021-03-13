@@ -4,6 +4,7 @@ Track your money where you spend on event like travel, wedding, someone's birthd
 
 ## Udacity commit style
 Please commit with comment like below:
+
 ex) docs: Describe README.md
 
 ```
