@@ -1,25 +1,14 @@
 {
   "plugins": [
-    [
-      "styled-components",
-      {
-        "ssr": true
-      }
-    ],
+    "@emotion",
     [
       "module-resolver",
       {
-        "root": [
-          "./"
-        ],
+        "root": ["./"],
         "alias": {
           "@src": "./src"
         },
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     ]
   ]
