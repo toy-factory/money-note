@@ -18,5 +18,14 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'linebreak-style': [2, 'unix'],
+    'import/extensions': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      alias: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        map: [['#', './src']],
+      },
+    },
   },
 };
