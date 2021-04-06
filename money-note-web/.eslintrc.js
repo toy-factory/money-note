@@ -26,6 +26,10 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         map: [['#', './src']],
       },
+      node: {
+        paths: ['src'],
+        extensions: ['.js', 'jsx', 'ts', 'tsx'],
+      },
     },
   },
 };
