@@ -1,2 +1,2 @@
-com/note/money/Application.java
- com.note.money.Application
+com/note/money/MoneyNoteServerApplication.java
+ com.note.money.MoneyNoteServerApplication
