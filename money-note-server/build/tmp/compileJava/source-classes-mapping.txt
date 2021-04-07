@@ -1,7 +1,7 @@
 com/note/money/MoneyNoteServerApplication.java
  com.note.money.MoneyNoteServerApplication
-MainApp.java
- MainApp
+com/note/money/user/MemoryUserRepository.java
+ com.note.money.user.MemoryUserRepository
 com/note/money/user/UserRepository.java
  com.note.money.user.UserRepository
 com/note/money/user/UserService.java
@@ -10,5 +10,3 @@ com/note/money/user/UserServiceImpl.java
  com.note.money.user.UserServiceImpl
 com/note/money/user/User.java
  com.note.money.user.User
-com/note/money/user/MemoryUserRepository.java
- com.note.money.user.MemoryUserRepository
