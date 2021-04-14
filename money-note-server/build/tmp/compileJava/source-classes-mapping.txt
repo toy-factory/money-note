@@ -1,12 +1,2 @@
 com/note/money/MoneyNoteServerApplication.java
  com.note.money.MoneyNoteServerApplication
-com/note/money/user/MemoryUserRepository.java
- com.note.money.user.MemoryUserRepository
-com/note/money/user/UserRepository.java
- com.note.money.user.UserRepository
-com/note/money/user/UserService.java
- com.note.money.user.UserService
-com/note/money/user/UserServiceImpl.java
- com.note.money.user.UserServiceImpl
-com/note/money/user/User.java
- com.note.money.user.User
