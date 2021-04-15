@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor
 @Entity
-public class ExpenseDetail {
+public class ExpenseDetail extends BaseTimeEntity{
     @Id
     private Long expenseId;
 
