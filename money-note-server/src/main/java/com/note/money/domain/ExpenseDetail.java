@@ -4,20 +4,14 @@ import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity
 public class ExpenseDetail extends BaseTimeEntity{
-    @Id
-    private Long expenseId;
-
-    @Id
-    private Long categoryId;
+    @EmbeddedId
+    private ExpenseDetailPk expenseDetailPk;
 
     @NotNull
     private int expense;
