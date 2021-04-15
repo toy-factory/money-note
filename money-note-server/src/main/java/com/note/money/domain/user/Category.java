@@ -21,6 +21,5 @@ public class Category extends BaseTimeEntity {
     @NotNull
     private String categoryName;
 
-    @NotNull
     private Long userId;
 }

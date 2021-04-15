@@ -22,7 +22,6 @@ public class Group extends BaseTimeEntity {
     @NotNull
     private String groupName;
 
-    @NotNull
     private Long userId;
 
 }
