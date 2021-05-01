@@ -1,0 +1,11 @@
+@use '#/styles/variables.scss' as var;
+
+.note-content {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+
+  &__title {
+    @extend %title;
+  }
+}
