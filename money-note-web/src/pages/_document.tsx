@@ -13,8 +13,8 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="description" content="Tracking money" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="description" content="Track your money when you spend on.." />
+          <meta name="theme-color" content="#FFCC66" />
         </Head>
         <body>
           <Main />
