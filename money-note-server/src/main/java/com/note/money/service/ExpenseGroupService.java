@@ -14,8 +14,6 @@ public class ExpenseGroupService {
 
     @Transactional
     public Long create(CreateExpenseGroupRequest request) {
-        if (request.getGroupName() == null || request.getGroupName().isBlank()) return null;
-
         return expenseGroupRepository.save(request.toEntity()).getGroupId();
     }
 }
