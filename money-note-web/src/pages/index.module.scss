@@ -1,0 +1,6 @@
+@use '#/styles/components/note' as note;
+
+.container {
+  width: note.$note-width;
+  margin: 0 auto;
+}
