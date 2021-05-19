@@ -1,9 +1,9 @@
 import NoteBackground from './NoteBackground';
 import NoteContent from './NoteContent';
-import c from './NoteMain.module.scss';
+import $ from './NoteMain.module.scss';
 
 const NoteMain = () => (
-  <main className={c.main}>
+  <main className={$.main}>
     <NoteContent />
     <NoteBackground />
   </main>
