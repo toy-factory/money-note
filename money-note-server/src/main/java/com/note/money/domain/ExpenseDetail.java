@@ -1,10 +1,11 @@
 package com.note.money.domain;
 
-import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor

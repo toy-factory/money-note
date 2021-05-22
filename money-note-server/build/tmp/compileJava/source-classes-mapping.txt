@@ -1,2 +1,0 @@
-com/note/money/MoneyNoteServerApplication.java
- com.note.money.MoneyNoteServerApplication
