@@ -1,13 +1,12 @@
 package com.note.money.domain.user;
 
 import com.note.money.domain.BaseTimeEntity;
-import com.note.money.domain.util.EmptyStringToNullConverter;
-import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @NoArgsConstructor
@@ -20,16 +19,14 @@ public class ExpenseGroup extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long groupId;
 
-    @NotNull
-    @Column(length = 20)
-    @Convert(converter = EmptyStringToNullConverter.class)
+    @Column(length = GROUP_NAME_SIZE)
+    @NotBlank
     private String groupName;
 
     private Long userId;
 
     @Builder
     public ExpenseGroup(String groupName, Long userId) {
-        System.out.println(1);
         this.groupName = groupName;
         this.userId = userId;
     }

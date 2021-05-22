@@ -7,7 +7,7 @@ import javax.persistence.Converter;
 public class EmptyStringToNullConverter implements AttributeConverter<String, String> {
     @Override
     public String convertToDatabaseColumn(String attribute) {
-        if ("".equals(attribute.trim())) {
+        if (attribute.isEmpty()) {
             return null;
         } else {
             return attribute;

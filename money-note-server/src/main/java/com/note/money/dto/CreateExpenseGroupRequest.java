@@ -10,8 +10,10 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @Getter
 public class CreateExpenseGroupRequest {
+    private static final int GROUP_NAME_SIZE = 20;
+
     @NotBlank
-    @Length(max = 20)
+    @Length(max = GROUP_NAME_SIZE)
     private String groupName;
 
     private Long userId;
