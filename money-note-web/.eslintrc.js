@@ -1,3 +1,5 @@
+const os = require('os');
+
 module.exports = {
   env: {
     browser: true,
@@ -14,11 +16,11 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
+    'linebreak-style': ['error', os.EOL === '\r\n' ? 'windows' : 'unix'],
     indent: 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'linebreak-style': [2, 'unix'],
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'no-use-before-define': 'off',
