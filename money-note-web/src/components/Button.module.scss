@@ -1,0 +1,37 @@
+@use '#/styles/colors.scss' as colors;
+
+.button {
+  display: flex;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  background: colors.$primary;
+  
+  border-radius: 8px;
+  
+  &.--small {
+    padding: 0.6rem 1.2rem;
+  }
+
+  &.--medium {
+    padding: 1.0rem 2.0rem;
+  }
+  
+  &.--large {
+    padding: 1.0rem 2.0rem;
+  }
+
+  &:hover {
+    background-color: colors.$primary-light;
+  }
+  &:active {
+    background-color: colors.$secondary;
+  }
+
+  transition: background-color 0.2s ease-in-out;
+}
