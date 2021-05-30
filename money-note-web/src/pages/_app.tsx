@@ -10,6 +10,10 @@ function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
+    if (router.query.code == null) {
+      return;
+    }
+
     apiClient.get('/oauth2/kakao', {
       params: {
         kakao_code: router.query.code,
