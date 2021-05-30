@@ -1,7 +1,12 @@
+import Header from '#/components/Header/Header';
 import NoteMain from '#/components/NoteMain';
 
 const Index = () => (
-  <NoteMain />
+  <>
+    <Header />
+    <NoteMain />
+    {/* <Footer /> */}
+  </>
 );
 
 export default Index;
