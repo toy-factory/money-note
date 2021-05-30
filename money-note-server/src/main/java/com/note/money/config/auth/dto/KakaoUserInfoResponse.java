@@ -1,5 +1,6 @@
 package com.note.money.config.auth.dto;
 
+import com.note.money.domain.user.User;
 import lombok.Getter;
 
 @Getter
@@ -9,6 +10,13 @@ public class KakaoUserInfoResponse {
     private String synched_at;
     private String connected_at;
     private Properties properties;
+
+    public User toEntity() {
+        return User.builder()
+                .email(kakao_account.getEmail())
+                .userName(properties.getNickname())
+                .build();
+    }
 
     @Getter
     public class KakaoAccount {

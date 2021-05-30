@@ -21,18 +21,14 @@ public class User extends BaseTimeEntity {
     private Long id;
 
     @NotNull
-    private String userId;
-
-    @NotNull
-    private String userPwd;
+    private String email;
 
     @NotNull
     private String userName;
 
     @Builder
-    public User(String userId, String userPwd, String userName) {
-        this.userId = userId;
-        this.userPwd = userPwd;
+    public User(String email, String userName) {
+        this.email = email;
         this.userName = userName;
     }
 }
