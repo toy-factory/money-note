@@ -15,7 +15,7 @@ function App({ Component, pageProps }: AppProps) {
         kakao_code: router.query.code,
       },
     });
-  }, [router.query]);
+  }, [router.query.code]);
 
   return (
     <>
