@@ -31,4 +31,9 @@ public class User extends BaseTimeEntity {
         this.email = email;
         this.userName = userName;
     }
+
+    public User update(String userName){
+        this.userName = userName;
+        return this;
+    }
 }

@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -30,7 +32,13 @@ public class UserService {
     }
 
     private User saveOrUpdate(KakaoUserInfoResponse kakaoUserInfoResponse) {
-        User user = kakaoUserInfoResponse.toEntity();
-        return userRepository.save(user);
+        Optional<User> optionalUser = userRepository.findByEmail(kakaoUserInfoResponse.getKakao_account().getEmail());
+        if (optionalUser.isPresent()) {
+            User existingUser = optionalUser.get();
+            existingUser.update(kakaoUserInfoResponse.getProperties().getNickname());
+            return userRepository.save(existingUser);
+        } else {
+            return userRepository.save(kakaoUserInfoResponse.toEntity());
+        }
     }
 }
