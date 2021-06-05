@@ -1,6 +1,6 @@
-import $ from './NoteContent.module.scss';
+import $ from './NoteContents.module.scss';
 
-const NoteContent = () => (
+const NoteContents = () => (
   <div className={$['note-content']}>
     <h1 className={$['note-content__title']}>컨텐츠1</h1>
     <span>컨텐츠1</span>
@@ -13,4 +13,4 @@ const NoteContent = () => (
   </div>
 );
 
-export default NoteContent;
+export default NoteContents;
