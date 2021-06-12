@@ -12,11 +12,11 @@
   border-radius: 10px;
 }
 
-.background__gap {
-  height: 80px;
-}
-
 .background__pattern {
   height: 100%;
-  background-image: repeating-linear-gradient(color.$primary 0px, color.$primary 34px, color.$primary-light 36px);
+  background-image: repeating-linear-gradient(
+    color.$primary 0px,
+    color.$primary 34px,
+    color.$primary-dark 36px
+  );
 }

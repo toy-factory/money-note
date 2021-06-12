@@ -1,0 +1,7 @@
+@use '#/styles/colors.scss' as colors;
+
+.footer__container {
+  background-color: colors.$primary;
+  height: 10rem;
+  padding: 1rem;
+}

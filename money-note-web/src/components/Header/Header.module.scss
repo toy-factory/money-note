@@ -1,17 +1,15 @@
 @use '#/styles/colors.scss' as colors;
 
 .header__container {
-  position: absolute;
   display: flex;
-  width: 100%;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: colors.$primary;
   z-index: 1;
 }
 
 .header__logo {
-  height: 8rem;
+  height: 100px;
   padding: 1rem;
 }

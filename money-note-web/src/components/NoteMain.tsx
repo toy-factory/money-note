@@ -1,12 +1,13 @@
 import NoteBackground from './NoteBackground';
-import NoteContent from './NoteContent';
 import $ from './NoteMain.module.scss';
 
-const NoteMain = () => (
-  <main className={$.main}>
-    <NoteContent />
+const NoteMain = ({ children }) => (
+  <div className={$.main__container}>
+    <main className={$.main}>
+      {children}
+    </main>
     <NoteBackground />
-  </main>
+  </div>
 );
 
 export default NoteMain;
