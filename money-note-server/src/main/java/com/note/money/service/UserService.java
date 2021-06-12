@@ -20,25 +20,23 @@ public class UserService {
     private final UserRepository userRepository;
     private final KakaoOauth2 oauth2Kakao;
 
-    public void oauth2KakaoAuthorization(String kakao_code) throws JsonProcessingException {
+    public KakaoUserInfoResponse oauth2KakaoAuthorization(String kakao_code) throws JsonProcessingException {
         KakaoTokenResponse kakaoTokenResponse = oauth2Kakao.getAccessToken(kakao_code);
         KakaoUserInfoResponse kakaoUserInfoResponse = oauth2Kakao.getUserInfo(kakaoTokenResponse.getAccess_token());
+        log.info("[access token]"+kakaoTokenResponse.getAccess_token());
 
-        log.info(String.valueOf(kakaoUserInfoResponse.getId()));
-        log.info(String.valueOf(kakaoUserInfoResponse.getKakao_account().getEmail()));
-        log.info(String.valueOf(kakaoUserInfoResponse.getProperties().getNickname()));
-
-        User user = saveOrUpdate(kakaoUserInfoResponse);
+        saveOrUpdate(kakaoUserInfoResponse);
+        return kakaoUserInfoResponse;
     }
 
-    private User saveOrUpdate(KakaoUserInfoResponse kakaoUserInfoResponse) {
+    private void saveOrUpdate(KakaoUserInfoResponse kakaoUserInfoResponse) {
         Optional<User> optionalUser = userRepository.findByEmail(kakaoUserInfoResponse.getKakao_account().getEmail());
         if (optionalUser.isPresent()) {
             User existingUser = optionalUser.get();
             existingUser.update(kakaoUserInfoResponse.getProperties().getNickname());
-            return userRepository.save(existingUser);
+            userRepository.save(existingUser);
         } else {
-            return userRepository.save(kakaoUserInfoResponse.toEntity());
+            userRepository.save(kakaoUserInfoResponse.toEntity());
         }
     }
 }
