@@ -1,6 +1,10 @@
-.main {
+.main__container {
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
+  flex-grow: 1;
+}
+
+.main {
+  padding: 5rem 5rem;
+  flex-grow: 1;
 }

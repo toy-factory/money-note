@@ -1,0 +1,11 @@
+@use '#/styles/colors.scss' as colors;
+
+.searchbar__container {
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px;
+  padding: 2rem 1rem;
+  width: 50%;
+  background-color: colors.$primary;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+}

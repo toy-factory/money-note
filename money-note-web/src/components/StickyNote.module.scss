@@ -1,0 +1,11 @@
+@use '#/styles/colors.scss' as colors;
+
+.stickynote__container {
+  background: colors.$primary-light;
+  flex-shrink: 1;
+  flex-basis: 30%;
+  border-radius: 8px;
+  padding: 2rem 2rem;
+  min-height: 10rem;
+  box-shadow: 1px 1px 2px;
+}

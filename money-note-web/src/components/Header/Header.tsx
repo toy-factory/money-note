@@ -4,6 +4,7 @@ import Link from 'next/link';
 import $ from './Header.module.scss';
 import LoginButton from './LoginButton';
 import UserInfo from './UserInfo';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   const [isAuthenticated] = useState(false);
@@ -15,6 +16,7 @@ const Header = () => {
           <img className={$.header__logo} src="/images/logo.png" alt="logo" />
         </a>
       </Link>
+      <SearchBar />
       {isAuthenticated ? <UserInfo userName="taewan" /> : <LoginButton />}
     </header>
   );
