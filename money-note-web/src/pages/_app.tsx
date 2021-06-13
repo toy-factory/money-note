@@ -3,7 +3,9 @@ import Head from 'next/head';
 import '#/styles/reset.css';
 import '#/styles/globals.scss';
 import { useEffect } from 'react';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
+import { RecoilRoot } from 'recoil';
+
 import apiClient from '#/lib/apiClient';
 
 function App({ Component, pageProps }: AppProps) {
@@ -28,7 +30,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }

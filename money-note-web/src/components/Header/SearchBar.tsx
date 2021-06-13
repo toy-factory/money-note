@@ -1,8 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
+import { useRecoilState } from 'recoil';
+
+import { searchState } from '#/recoil/recoilRoot';
 import $ from './SearchBar.module.scss';
 
 const SearchBar = () => {
-  const [keyword, setKeyword] = useState();
+  const [keyword, setKeyword] = useRecoilState(searchState);
 
   const onChange = useCallback((e) => {
     setKeyword(e.target.value);
