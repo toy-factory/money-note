@@ -21,6 +21,7 @@ public class CreateExpenseGroupRequest {
     public ExpenseGroup toEntity() {
         return ExpenseGroup.builder()
                 .groupName(groupName)
+                .totalExpense(0)
                 .userId(userId)
                 .build();
     }
