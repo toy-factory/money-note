@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
@@ -23,11 +24,15 @@ public class ExpenseGroup extends BaseTimeEntity {
     @NotBlank
     private String groupName;
 
+    @NotNull
+    private int totalExpense;
+
     private Long userId;
 
     @Builder
-    public ExpenseGroup(String groupName, Long userId) {
+    public ExpenseGroup(String groupName, int totalExpense, Long userId) {
         this.groupName = groupName;
+        this.totalExpense = totalExpense;
         this.userId = userId;
     }
 }
