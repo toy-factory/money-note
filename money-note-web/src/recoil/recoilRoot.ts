@@ -1,4 +1,8 @@
-import { atom, selector } from 'recoil';
+import {
+  atom,
+  selector,
+} from 'recoil';
+
 import { Group } from '#/types';
 
 export const authState = atom({
@@ -24,5 +28,13 @@ export const groupFilteredSelector = selector({
     const filtered = group
       .filter(({ title }: {title: string}) => title.includes(searchKeyword));
     return filtered;
+  },
+});
+
+export const modalState = atom({
+  key: 'modalState',
+  default: {
+    isOpen: false,
+    content: null,
   },
 });

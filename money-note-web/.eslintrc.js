@@ -3,7 +3,15 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  globals: {
+    JSX: true,
+  },
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'airbnb',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -12,15 +20,23 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'modules-newline',
+  ],
   rules: {
     'linebreak-style': ['error', 'unix'],
     indent: 'off',
-    'jsx-a11y/anchor-is-valid': ['error', {
-      components: ['Link'],
-      specialLink: ['hrefLeft', 'hrefRight'],
-      aspects: ['invalidHref', 'preferButton'],
-    }],
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -31,10 +47,15 @@ module.exports = {
     '@typescript-eslint/indent': ['error', 2],
     'react/require-default-props': 'off',
     'import/prefer-default-export': 'off',
+    'modules-newline/import-declaration-newline': 'warn',
+    'modules-newline/export-declaration-newline': 'warn',
+    'import/order': ['error', {
+      'newlines-between': 'always-and-inside-groups',
+      groups: [['builtin', 'external'], 'internal'],
+    }],
   },
   settings: {
     'import/resolver': {
-      // typescript: {},
       node: {
         paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

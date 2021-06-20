@@ -1,11 +1,24 @@
 @use '#/styles/colors.scss' as colors;
 
 .searchbar__container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: relative;
+}
+
+.searchbar {
   border-radius: 8px;
   box-shadow: 1px 1px 3px;
   padding: 2rem 1rem;
-  width: 50%;
+
   background-color: colors.$primary;
   font-weight: bold;
   letter-spacing: 0.5rem;
+}
+
+.searchbar__text {
+  position: absolute;
+  text-align: center;
+  bottom: -3rem;
 }

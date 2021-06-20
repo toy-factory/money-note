@@ -1,0 +1,12 @@
+.FormRow__container {
+  display: flex;
+  align-items: center;
+}
+
+.FormRow__label {
+  flex-basis: 30%;
+}
+
+.FormRow__component {
+  flex-basis: 70%;
+}
