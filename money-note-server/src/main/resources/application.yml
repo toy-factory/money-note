@@ -1,15 +1,19 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/money-note
+    hikari:
+      jdbc-url: jdbc:h2:tcp://localhost/~/money-note;MODE=MYSQL
+#    url:
     username: sa
     password:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+#      ddl-auto: create
     properties:
       hibernate:
-        #      show_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        store_engine: innodb
+#        show_sql: true
         format_sql: true
 
 logging.level:
