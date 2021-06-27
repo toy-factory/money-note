@@ -1,20 +1,23 @@
 import {
   useCallback,
+  useEffect,
   useState,
 } from 'react';
 
 import Input from '#/components/Input';
 import FormRow from '#/components/FormRow';
+import $ from './GroupAdder.module.scss';
+import apiClient from '#/lib/apiClient';
 
 interface GroupAdderProps {
-  expense: number;
   title: string;
-  category: string;
+  expense?: number;
+  category?: string;
 }
 
-const GroupAdder = ({ expense, title, category }: GroupAdderProps) => {
-  const [localExpense, setLocalExpense] = useState(expense);
+const GroupAdder = ({ title, expense = 0, category = '' }: GroupAdderProps) => {
   const [localTitle, setLocalTitle] = useState(title);
+  const [localExpense, setLocalExpense] = useState(expense);
   const [localCategory, setLocalCategory] = useState(category);
 
   const handleChange = useCallback((e) => {
@@ -29,14 +32,31 @@ const GroupAdder = ({ expense, title, category }: GroupAdderProps) => {
     if (name === 'category') {
       setLocalCategory(value);
     }
-
-    console.log(name, value);
+    console.log(value, name);
   }, []);
 
+  const handleSubmit = useCallback(async () => {
+    const result = await apiClient.post('http://3.37.115.97:8080/api/group', {
+      groupName: localTitle,
+      expense: localExpense,
+    });
+    console.log(result);
+  }, [localTitle, localExpense]);
+
+  useEffect(() => {
+    const handleKeyDownEnter = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDownEnter);
+    return () => window.removeEventListener('keydown', handleKeyDownEnter);
+  }, [handleSubmit]);
+
   return (
-    <form onChange={handleChange}>
+    <form className={$.groupAdder__container} onChange={handleChange}>
+      <FormRow label="여행 이름" Component={<Input name="title" value={localTitle} autoFocus />} />
       <FormRow label="금액" Component={<Input name="expense" value={localExpense} />} />
-      <FormRow label="기록 이름" Component={<Input name="title" value={localTitle} />} />
       <FormRow label="카테고리" Component={<Input name="category" value={localCategory} />} />
     </form>
   );

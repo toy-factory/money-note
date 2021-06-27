@@ -1,5 +1,8 @@
-import { useEffect } from 'react';
 import {
+  useEffect,
+} from 'react';
+import {
+  useRecoilState,
   useRecoilValue,
   useSetRecoilState,
 } from 'recoil';
@@ -11,11 +14,14 @@ import StickyNoteList from '#/components/StickyNoteList';
 import {
   groupFilteredSelector,
   groupState,
+  modalState,
 } from '#/recoil/recoilRoot';
+import GroupAdder from '#/components/GroupAdder';
 
 const Index = () => {
   const setGroup = useSetRecoilState(groupState);
   const filteredGroup = useRecoilValue(groupFilteredSelector);
+  const [{ isOpen }, setModalState] = useRecoilState(modalState);
 
   useEffect(() => {
     const getDummyData = () => [
@@ -27,7 +33,25 @@ const Index = () => {
     ];
 
     setGroup(getDummyData());
-  }, []);
+  }, [setGroup]);
+
+  useEffect(() => {
+    const handleKeyDownEnter = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        if (isOpen) {
+          return;
+        }
+
+        setModalState({
+          isOpen: true,
+          content: <GroupAdder title="" />,
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDownEnter);
+    return () => window.removeEventListener('keydown', handleKeyDownEnter);
+  });
 
   return (
     <>

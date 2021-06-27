@@ -1,18 +1,31 @@
 import {
-  useRecoilState,
 } from 'recoil';
-import { useCallback } from 'react';
+import {
+  useCallback,
+  useEffect,
+} from 'react';
 
-import { modalState } from '#/recoil/recoilRoot';
 import $ from './Modal.module.scss';
 import Button from './Button';
+import useModal from '#/hooks/useModal';
 
 const Modal = () => {
-  const [{ isOpen, content }, setModalState] = useRecoilState(modalState);
+  const { isOpen, content, closeModal } = useModal();
 
   const handleClose = useCallback(() => {
-    setModalState({ isOpen: false, content: null });
-  }, []);
+    closeModal();
+  }, [closeModal]);
+
+  useEffect(() => {
+    const handleKeyDownESC = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDownESC);
+    return () => window.removeEventListener('keydown', handleKeyDownESC);
+  }, [closeModal]);
 
   if (!isOpen) {
     return null;

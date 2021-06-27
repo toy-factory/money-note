@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'airbnb',
+    'airbnb/hooks',
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
