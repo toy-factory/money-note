@@ -1,17 +1,15 @@
-import { useRecoilValue } from 'recoil';
-
 import StickyNote from '#/components/StickyNote';
-import { groupFilteredSelector } from '#/recoil/recoilRoot';
 import $ from './StickyNoteList.module.scss';
+import { Group } from '#/types';
 
-const StickyNoteList = () => {
-  const filteredInfo = useRecoilValue(groupFilteredSelector);
+interface StickyNoteListProps {
+  data: Group[];
+}
 
-  return (
-    <section className={$['sticky-note-list__container']}>
-      {filteredInfo.map((d) => <StickyNote key={d.title} title={d.title} />)}
-    </section>
-  );
-};
+const StickyNoteList = ({ data }: StickyNoteListProps) => (
+  <section className={$['sticky-note-list__container']}>
+    {data.map(({ key, title }) => <StickyNote key={key} title={title} />)}
+  </section>
+);
 
 export default StickyNoteList;

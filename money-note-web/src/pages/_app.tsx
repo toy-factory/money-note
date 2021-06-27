@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
 
 import apiClient from '#/lib/apiClient';
+import Modal from '#/components/Modal';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -32,6 +33,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <RecoilRoot>
         <Component {...pageProps} />
+        <Modal />
       </RecoilRoot>
     </>
   );
